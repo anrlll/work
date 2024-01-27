@@ -6,4 +6,5 @@ urlpatterns = [
     path("", views.gadget, name="home"),
     path("before/", views.g_before, name="before"),
     path("after/", views.g_after, name="after"),
+    path("detail/<int:pk>/", views.g_after_detail, name="detail")
 ]

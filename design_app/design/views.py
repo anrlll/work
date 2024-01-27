@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from .models import Photo,Category
+from django.shortcuts import render, get_object_or_404
+from .models import Photo
 
 # Create your views here.
 
@@ -15,14 +15,13 @@ def g_before(request):
     return render(request, "design/gadget_before.html",{"photos":photos, "categories":categories})
 
 
-
-
-
-
-
 def g_after(request):
     photos = Photo.objects.filter(top="1").order_by("order")
     return render(request, "design/gadget_after.html",{"photos":photos})
+
+def g_after_detail(request, pk):
+    photo = get_object_or_404(Photo, pk=pk)
+    return render(request, "design/gadget_detail.html",{'photo': photo})
 
 
 
