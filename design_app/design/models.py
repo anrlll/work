@@ -25,7 +25,6 @@ class Top(models.Model):
     def __str__(self):
         return self.title
 
-#画像ファイルを保存するフィールド
 #ImageField使用時 : Pillowのインストール
 class Photo(models.Model):
     title = models.CharField(max_length=150)
